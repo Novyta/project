@@ -91,9 +91,9 @@ export const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-800">
+    <div className="min-h-screen bg-green-200">
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
-        <div className="text-gray-100 text-6xl pt-28 pb-10">ROBOTS</div>
+        <div className="text-blue-500 text-6xl pt-28 pb-10">ROBOTS</div>
         {mintedNftState.state === "PENDING" && (
           <div className="text-xl text-white">LOADING...</div>
         )}
@@ -134,7 +134,7 @@ export const HomePage = () => {
         >
           <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div
-              className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+              className="fixed inset-0 bg-blue-500 bg-opacity-75 transition-opacity"
               aria-hidden="true"
             />
             <span
