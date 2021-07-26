@@ -23,7 +23,7 @@ export const HomePage = () => {
     state: "UNINITIALIZED",
   });
   const modalVisible =
-    purchaseState.state === "PENDING_METAMASKgit commit -am "initial code"" ||
+    purchaseState.state === "PENDING_METAMASK" ||
     purchaseState.state === "PENDING_SIGNER" ||
     purchaseState.state === "PENDING_CONFIRMAION";
 
@@ -38,7 +38,7 @@ export const HomePage = () => {
       const owner = await contract.ownerOf(id);
       const formattedUri = formatIpfsUrl(ipfsUri);
       const metadata = (await axios.get(formattedUri)).data;
-      const formattedImage = formatIpfsUrl(metadata.image);git
+      const formattedImage = formatIpfsUrl(metadata.image);
       return {
         id,
         name: metadata.name,
