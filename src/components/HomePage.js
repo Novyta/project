@@ -6,7 +6,7 @@ import axios from "axios";
 
 const provider = getDefaultProvider("rinkeby", { alchemy: config.alchemyKey });
 const contract = new Contract(
-  "0xdf401A548A1d8435E342245A70C817Fa55B0ae5c",
+  "0x30b4Dc580B413a06390eCd50dcd6b9fB721BdC01",
   abi,
   provider
 );
@@ -23,7 +23,7 @@ export const HomePage = () => {
     state: "UNINITIALIZED",
   });
   const modalVisible =
-    purchaseState.state === "PENDING_METAMASK" ||
+    purchaseState.state === "PENDING_METAMASKgit commit -am "initial code"" ||
     purchaseState.state === "PENDING_SIGNER" ||
     purchaseState.state === "PENDING_CONFIRMAION";
 
@@ -38,7 +38,7 @@ export const HomePage = () => {
       const owner = await contract.ownerOf(id);
       const formattedUri = formatIpfsUrl(ipfsUri);
       const metadata = (await axios.get(formattedUri)).data;
-      const formattedImage = formatIpfsUrl(metadata.image);
+      const formattedImage = formatIpfsUrl(metadata.image);git
       return {
         id,
         name: metadata.name,
@@ -74,7 +74,7 @@ export const HomePage = () => {
 
     // Create the contract instance
     const contract = new Contract(
-      "0xdf401A548A1d8435E342245A70C817Fa55B0ae5c",
+      "0x30b4Dc580B413a06390eCd50dcd6b9fB721BdC01",
       abi,
       signer
     );
@@ -91,14 +91,55 @@ export const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-green-200">
-      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
-        <div className="text-blue-500 text-6xl pt-28 pb-10">ROBOTS</div>
-        {mintedNftState.state === "PENDING" && (
-          <div className="text-xl text-white">LOADING...</div>
+    <div className="bg-green-400 border-2 border-none border-pink-700">
+      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 border-2 border-none border-purple-600 ">
+      
+        
+      <div className=" text-blue-900 text-7xl font font font italic border-2 border-none border-black">
+
+        <div className="w-auto border-2 border-none">
+
+          <div className=" border-2 border-none border-red-900 mx-auto justify-center h-48 pt-10 px-60 ">
+            <div className="border-2 border-none border-green-900 h-24 mx-auto">
+              <div className="border-none border-2 border-yellow-500 float-left">
+              COOL ELEPHANTS
+              
+              </div>
+              <div className="border-2 border-none w-20 float-left">
+                <img src="https://img.icons8.com/officel/70/000000/elephant.png" alt=""/>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        </div>
+
+      <div className="mt-1">
+
+          <button
+          onClick={handlePurchase}
+          type="button"
+          className="inline-flex items-center px-6 py-3 border mb-10 text-white bg-pink-700 border-transparent text-base font-medium rounded-sm"
+        >
+          Buy Robot 
+          </button>
+
+       </div>
+
+       {mintedNftState.state === "PENDING" && (
+          <div className="text-xl text-white border-2 border-none h-screen">
+            <div className="border-2 border-none border-red-900 w-40 h-14 justify-center mx-auto mt-44">
+              <div className="float-left w-8 h-8"><img src="images/output-onlinegiftools.gif" alt=""></img></div>
+              <div className="border-2 border-none float-right text-black">
+                LOADING...
+              </div>
+            </div>
+          </div>
         )}
+       
         {mintedNftState.state === "SUCCESS" && (
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4 border-2 border-none clear-both">
             {mintedNftState.data.map(
               ({ id, image, name, description, owner }) => {
                 return (
@@ -115,15 +156,7 @@ export const HomePage = () => {
             )}
           </div>
         )}
-        <div className="mt-12">
-          <button
-            onClick={handlePurchase}
-            type="button"
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-          >
-            Buy My Robot
-          </button>
-        </div>
+       
       </div>
       {modalVisible && (
         <div
@@ -132,9 +165,9 @@ export const HomePage = () => {
           role="dialog"
           aria-modal="true"
         >
-          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+          <div className="flex items-end justify-center min-h-screen pt-4 px-6 pb-20 text-center sm:block sm:p-0">
             <div
-              className="fixed inset-0 bg-blue-500 bg-opacity-75 transition-opacity"
+              className="fixed inset-0 bg-blue-800 bg-opacity-75 transition-opacity"
               aria-hidden="true"
             />
             <span
@@ -143,7 +176,7 @@ export const HomePage = () => {
             >
               ​
             </span>
-            <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
+            <div className="inline-block align-bottom bg-black rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
               <div>
                 <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100">
                   <svg
@@ -164,7 +197,7 @@ export const HomePage = () => {
                 </div>
                 <div className="mt-3 text-center sm:mt-5">
                   <h3
-                    className="text-lg leading-6 font-medium text-gray-900"
+                    className="text-lg leading-6 font-medium text-gray-500"
                     id="modal-title"
                   >
                     {purchaseState.state === "PENDING_METAMASK" &&
