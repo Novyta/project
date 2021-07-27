@@ -81,10 +81,22 @@ export const HomePage = () => {
 
     // Call the purchase method
     setPurchaseState({ state: "PENDING_SIGNER" });
-    const receipt = await contract.purchase({ value: utils.parseEther("1") });
-    setPurchaseState({ state: "PENDING_CONFIRMAION" });
-    const transaction = await receipt.wait();
-    setPurchaseState({ state: "SUCCESS", transaction });
+
+    
+
+    try {
+      const receipt = await contract.purchase({ value: utils.parseEther("1") });
+      setPurchaseState({ state: "PENDING_CONFIRMAION" });
+      const transaction = await receipt.wait();
+      setPurchaseState({ state: "SUCCESS", transaction });
+    } catch (err) {
+        console.log(err);
+        return setPurchaseState({ state: "UNINITIALIZED" });
+      }
+  
+
+
+
 
     // Reload the Robots
     await loadRobotsData();
@@ -122,7 +134,7 @@ export const HomePage = () => {
           type="button"
           className="inline-flex items-center px-6 py-3 border mb-10 text-white bg-pink-700 border-transparent text-base font-medium rounded-sm"
         >
-          Buy Robot 
+          Buy Elephant 
           </button>
 
        </div>
